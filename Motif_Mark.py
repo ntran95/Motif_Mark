@@ -162,34 +162,38 @@ with open(f, "rt") as file_handle:
                     #loop through the values of dictionary to find each motif using re.search, ignore case sensitivity
                 for key, value in motif_pos_dict.items():
                     motif_start = key[0]
-                    motif_end = key[0]
+                    motif_end = key[1]
 
                         #draw ygcy ticks
                     if re.search('[cut]gc[cut]', value, re.IGNORECASE):
-                        context.set_line_width(3)
+                        context.set_line_width(1)
                         context.set_source_rgb(1, .1, .1)
                         context.rectangle(motif_start +5,motif_y_coord,motif_end - motif_start,10)
+                        context.fill()
                         context.stroke()
 
                         #draw YYYYYYYYYY ticks
                     if re.search('[CUT]{10}', value, flags=re.IGNORECASE):
-                        context.set_line_width(3)
+                        context.set_line_width(1)
                         context.set_source_rgb(0, .51, 3)
                         context.rectangle(motif_start +5,motif_y_coord,motif_end - motif_start,10)
+                        context.fill()
                         context.stroke()
 
                         #draw GCAUG ticks
                     if re.search('gca[ut]g', value, flags=re.IGNORECASE):
-                        context.set_line_width(3)
+                        context.set_line_width(1)
                         context.set_source_rgb(.32, .60, 0.1)
                         context.rectangle(motif_start +5,motif_y_coord,motif_end - motif_start,10)
+                        context.fill()
                         context.stroke()
 
                         #draw catag ticks
                     if re.search('catag', value, flags=re.IGNORECASE):
-                        context.set_line_width(3)
+                        context.set_line_width(1)
                         context.set_source_rgb(50,0,221)
                         context.rectangle(motif_start +5,motif_y_coord,motif_end - motif_start,10)
+                        context.fill()
                         context.stroke()
 
 
